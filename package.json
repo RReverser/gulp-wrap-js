@@ -1,0 +1,43 @@
+{
+  "name": "gulp-wrap-js",
+  "version": "0.1.0",
+  "description": "Gulp plugin for templating JavaScript code with source maps support.",
+  "keywords": [
+    "gulpplugin",
+    "js",
+    "ast",
+    "code",
+    "wrap",
+    "template",
+    "sourcemaps"
+  ],
+  "author": {
+    "name": "Ingvar Stepanyan",
+    "email": "me@rreverser.com",
+    "url": "https://github.com/RReverser"
+  },
+  "repository": "RReverser/gulp-wrap-js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "dependencies": {
+    "escodegen": "^1.4.1",
+    "esprima": "^1.2.2",
+    "estemplate": "^0.2.0",
+    "gulp-util": "~2.2.0",
+    "through2": "*",
+    "vinyl-sourcemaps-apply": "^0.1.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-sourcemaps": "^1.2.4",
+    "mocha": "*",
+    "should": "^4.0.4",
+    "stream-assert": "^2.0.2"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "license": "MIT"
+}
