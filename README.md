@@ -1,11 +1,9 @@
 # gulp-wrap-js
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Dependency Status][depstat-image]][depstat-url]
 
-> [estemplate](https://github.com/RReverser/estemplate) plugin for [gulp](https://github.com/wearefractal/gulp)
+When using classic templating solutions (like Lo-Dash / Underscore templates / own regexps / etc.) for wrapping JavaScript code, you're manipulating code as strings under the hood, and so losing any inner structure and location information. Such approach is used in [gulp-wrap](https://github.com/adamayres/gulp-wrap), [gulp-wrap-amd](https://github.com/phated/gulp-wrap-amd), [gulp-wrap-umd](https://github.com/phated/gulp-wrap-umd) and that's why source maps are not currently supported in any of them.
 
-When using classic templating solutions (like Lo-Dash / Underscore templates) for wrapping JavaScript code, you're manipulating code as strings and so losing any inner structure and location information.
-
-This plugin allows you to wrap your JavaScript code into given template (UMD / AMD / whatever) and preserve locations for source maps generation.
+In opposite, this plugin is based on AST templating [estemplate](https://github.com/RReverser/estemplate) library, and allows to wrap your JavaScript code into given template (UMD / AMD / whatever) with preserved locations for source maps generation.
 
 Check out [gulp-sourcemaps](https://github.com/floridoo/gulp-sourcemaps) for detailed instructions on working with source maps enabled plugins in Gulp.
 
