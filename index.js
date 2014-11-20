@@ -33,10 +33,15 @@ module.exports = function (tmpl, format) {
 		if (file.isBuffer()) {
 			var ast = esprima.parse(file.contents, {
 				loc: true,
-				source: file.relative
+				source: file.relative,
+				range: true,
+				tokens: true,
+				comment: true
 			});
+			escodegen.attachComments(ast, ast.comments, ast.tokens);
 			ast = tmpl(ast);
 			var result = escodegen.generate(ast, {
+				comment: true,
 				format: format,
 				sourceMap: true,
 				sourceMapWithCode: true,
