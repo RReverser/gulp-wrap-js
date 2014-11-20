@@ -1,6 +1,6 @@
 {
   "name": "gulp-wrap-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Gulp plugin for templating JavaScript code with source maps support.",
   "keywords": [
     "gulpplugin",
@@ -23,7 +23,7 @@
   "dependencies": {
     "escodegen": "^1.4.1",
     "esprima": "^1.2.2",
-    "estemplate": "^0.2.0",
+    "estemplate": "*",
     "gulp-util": "~2.2.0",
     "through2": "*",
     "vinyl-sourcemaps-apply": "^0.1.4"
