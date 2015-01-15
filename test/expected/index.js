@@ -1,3 +1,4 @@
+// template comment
 define(function () {
     var x = 1;
     var y = 2;

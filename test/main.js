@@ -25,7 +25,7 @@ describe('gulp-wrap-js', function () {
 	it('should produce expected file and source map', function (done) {
 		gulp.src('test/fixtures/index.js')
 		.pipe(sourcemaps.init())
-		.pipe(wrapJS('define(function () {%= body %});'))
+		.pipe(wrapJS('// template comment\ndefine(function () {%= body %});'))
 		.pipe(assert.first(function (file) {
 			file.contents.toString().should.eql(expectedFile.contents.toString());
 			file.sourceMap.sources.should.eql([file.relative]);
