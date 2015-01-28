@@ -12,7 +12,7 @@ module.exports = function (tmpl, format) {
 		throw new gutil.PluginError('gulp-wrap-js', 'No template supplied');
 	}
 
-	tmpl = estemplate.compile(tmpl);
+	tmpl = estemplate.compile(tmpl, { attachComment:true });
 	format = format || escodegen.FORMAT_DEFAULTS;
 
 	return through.obj(function (file, enc, callback) {
