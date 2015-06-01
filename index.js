@@ -21,11 +21,11 @@ module.exports = function (tmpl, format) {
 
 		// Do nothing if no contents
 		if (file.isNull()) {
-			callback(null, file);
+			return callback(null, file);
 		}
 
 		if (file.isStream()) {
-			callback(new gutil.PluginError('gulp-wrap-js', 'Stream content is not supported'));
+			return callback(new gutil.PluginError('gulp-wrap-js', 'Stream content is not supported'));
 		}
 
 		var err;
