@@ -28,7 +28,6 @@ module.exports = function (tmpl, format) {
 			return callback(new gutil.PluginError('gulp-wrap-js', 'Stream content is not supported'));
 		}
 
-		var err;
 		// check if file.contents is a `Buffer`
 		if (file.isBuffer()) {
 			try {
@@ -39,15 +38,6 @@ module.exports = function (tmpl, format) {
 					tokens: true,
 					comment: true
 				});
-			} catch(e) {
-				err = e;
-			}
-
-			if(err) {
-				// Relative to gulpfile.js filepath with forward slashes
-				file = gutil.colors.magenta(path.relative('.', file.path).split(path.sep).join('/'));
-				callback(new gutil.PluginError('gulp-wrap-js', file + ' ' + err.message))
-			} else {
 				escodegen.attachComments(ast, ast.comments, ast.tokens);
 				ast = tmpl(ast);
 				var result = escodegen.generate(ast, {
@@ -57,12 +47,17 @@ module.exports = function (tmpl, format) {
 					sourceMapWithCode: true,
 					file: file.relative
 				});
-				file.contents = new Buffer(result.code);
-				if (file.sourceMap) {
-					applySourceMap(file, JSON.parse(result.map.toString()));
-				}
-				callback(null, file);
+			} catch(e) {
+				// Relative to gulpfile.js filepath with forward slashes
+				file = gutil.colors.magenta(path.relative('.', file.path).split(path.sep).join('/'));
+				return callback(new gutil.PluginError('gulp-wrap-js', file + ' ' + e.message))
 			}
+
+			file.contents = new Buffer(result.code);
+			if (file.sourceMap) {
+				applySourceMap(file, JSON.parse(result.map.toString()));
+			}
+			return callback(null, file);
 		}
 	});
 };
