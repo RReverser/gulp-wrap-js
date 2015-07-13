@@ -1,5 +1,5 @@
 // template comment
-define(function () {
+define('index.js', function () {
     var x = 1;
     var y = 2;
     // Comment
