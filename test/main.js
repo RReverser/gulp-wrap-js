@@ -25,9 +25,9 @@ describe('gulp-wrap-js', function () {
 	it('should produce expected file and source map', function (done) {
 		gulp.src('test/fixtures/index.js')
 		.pipe(sourcemaps.init())
-		.pipe(wrapJS('// template comment\ndefine(function () {%= body %});'))
+		.pipe(wrapJS('// template comment\ndefine("%= file.relative %", function () {%= body %});'))
 		.pipe(assert.first(function (file) {
-			file.contents.toString().should.eql(expectedFile.contents.toString());
+			file.contents.toString().should.eql(expectedFile.contents.toString().trim());
 			file.sourceMap.sources.should.eql([file.relative]);
 			file.sourceMap.file.should.eql(expectedFile.relative);
 			file.sourceMap.names.should.not.be.empty;

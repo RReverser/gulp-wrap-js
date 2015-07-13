@@ -39,6 +39,7 @@ module.exports = function (tmpl, format) {
 					comment: true
 				});
 				escodegen.attachComments(ast, ast.comments, ast.tokens);
+				ast.file = file;
 				ast = tmpl(ast);
 				var result = escodegen.generate(ast, {
 					comment: true,
