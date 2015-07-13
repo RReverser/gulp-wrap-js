@@ -1,6 +1,6 @@
 {
   "name": "gulp-wrap-js",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Gulp plugin for templating JavaScript code with source maps support.",
   "keywords": [
     "gulpplugin",
