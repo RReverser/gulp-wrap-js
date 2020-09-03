@@ -21,19 +21,21 @@
     "test": "mocha --reporter spec"
   },
   "dependencies": {
+    "ansi-colors": "^4.1.1",
     "escodegen": "^1.6.1",
     "esprima": "^2.3.0",
     "estemplate": "*",
-    "gulp-util": "~3.0.5",
+    "plugin-error": "^1.0.1",
     "through2": "*",
     "vinyl-sourcemaps-apply": "^0.1.4"
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-sourcemaps": "^1.5.2",
     "mocha": "*",
     "should": "^6.0.3",
-    "stream-assert": "^2.0.2"
+    "stream-assert": "^2.0.2",
+    "vinyl": "^2.2.0"
   },
   "engines": {
     "node": ">=0.8.0",
