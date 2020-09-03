@@ -11,11 +11,11 @@ require('mocha');
 
 delete require.cache[require.resolve('../')];
 
-var gutil = require('gulp-util'),
+var File = require('vinyl'),
 	wrapJS = require('../');
 
 describe('gulp-wrap-js', function () {
-	var expectedFile = new gutil.File({
+	var expectedFile = new File({
 		path: 'test/expected/index.js',
 		cwd: 'test/',
 		base: 'test/expected',
@@ -27,7 +27,7 @@ describe('gulp-wrap-js', function () {
 		.pipe(sourcemaps.init())
 		.pipe(wrapJS('// template comment\ndefine("%= file.relative %", function () {%= body %});'))
 		.pipe(assert.first(function (file) {
-			file.contents.toString().should.eql(expectedFile.contents.toString().trim());
+			file.contents.toString().should.eql(expectedFile.contents.toString().replace(/\r\n/g, "\n").trim());
 			file.sourceMap.sources.should.eql([file.relative]);
 			file.sourceMap.file.should.eql(expectedFile.relative);
 			file.sourceMap.names.should.not.be.empty;
